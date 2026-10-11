@@ -1,0 +1,47 @@
+﻿@model wt_lab4_4mvc_pravotorova.Models.Room
+@{
+    ViewData["Title"] = "Новый номер";
+}
+
+<div class="page-container">
+    <div class="form-wrap">
+        <h1>Новый номер</h1>
+        <p class="form-sub">Заполните информацию о новом номере</p>
+
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="Number">Номер комнаты</label>
+                <input asp-for="Number" required />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category">Категория</label>
+                <input asp-for="Category" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity">Вместимость</label>
+                <input asp-for="Capacity" type="number" min="1" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerNight">Цена за ночь (₽)</label>
+                <input asp-for="PricePerNight" type="number" step="0.01" min="0" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl">Ссылка на фото</label>
+                <input asp-for="ImageUrl" placeholder="https://..." />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Описание</label>
+                <textarea asp-for="Description"></textarea>
+            </div>
+            <div class="form-check">
+                <input asp-for="IsAvailable" type="checkbox" />
+                <label asp-for="IsAvailable" style="margin:0">Доступен для бронирования</label>
+            </div>
+            <div class="form-actions">
+                <a asp-action="Index" class="btn btn-ghost">Назад</a>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>

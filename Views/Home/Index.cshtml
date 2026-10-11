@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="page-container">
+
+    <section class="hero">
+        <span class="hero-badge">✦ Добро пожаловать</span>
+        <h1>Отель <span class="gradient-text">Pravotorik</span></h1>
+        <p>Уютное пространство в самом сердце города, где каждая деталь создана для вашего отдыха. Выберите идеальный номер и забронируйте незабываемый отдых.</p>
+        <div class="hero-actions">
+            <a asp-controller="Room" asp-action="Index" class="btn btn-primary">Смотреть номера</a>
+            <a asp-controller="Guest" asp-action="Index" class="btn btn-ghost">Наши гости</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🌸</span>
+                <h3>Уютные номера</h3>
+                <p>Каждый номер оформлен с любовью и вниманием к деталям.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✨</span>
+                <h3>Премиум-сервис</h3>
+                <p>Круглосуточная поддержка и забота о каждом госте.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌊</span>
+                <h3>Вид на море</h3>
+                <p>Из окон открывается живописная панорама побережья.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🍰</span>
+                <h3>Завтрак включён</h3>
+                <p>Свежая выпечка и ароматный кофе каждое утро.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Почему выбирают нас</h2>
+            <p>Мы создаём атмосферу, в которую хочется возвращаться</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Номеров</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Категории</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Ресепшн</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5.0</div>
+                <div class="stat-label">Рейтинг</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Отзывы гостей</h2>
+            <p>Что говорят те, кто уже побывал у нас</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">«Прекрасный отель! Номер был просторным, персонал очень внимательным. Обязательно вернёмся снова.»</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=47" alt="Анна" />
+                    <div>
+                        <strong>Анна Смирнова</strong>
+                        <span>Минск</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">«Идеальное место для отдыха. Атмосфера уюта, вкусные завтраки и красивый вид из окна.»</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Иван" />
+                    <div>
+                        <strong>Иван Петров</strong>
+                        <span>Москва</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">«Всё на высшем уровне. Особенно порадовал дизайн номеров — каждая деталь продумана.»</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=32" alt="Мария" />
+                    <div>
+                        <strong>Мария Ковалёва</strong>
+                        <span>Варшава</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

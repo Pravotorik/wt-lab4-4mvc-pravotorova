@@ -1,0 +1,50 @@
+﻿@model wt_lab4_4mvc_pravotorova.Models.Room
+@{
+    ViewData["Title"] = $"Номер {Model.Number}";
+    var amenities = ViewBag.Amenities as List<wt_lab4_4mvc_pravotorova.Models.Amenity>;
+}
+
+<div class="page-container">
+    <div class="detail-wrap">
+        <div class="detail-image" style="background-image: url('@Model.ImageUrl');"></div>
+        <div class="detail-body">
+            <div class="room-card__category">@Model.Category</div>
+            <h1>Номер @Model.Number</h1>
+            <p class="detail-desc">@Model.Description</p>
+
+            <div class="detail-info">
+                <div class="detail-info__item">
+                    <div class="detail-info__label">Вместимость</div>
+                    <div class="detail-info__value">@Model.Capacity гостя</div>
+                </div>
+                <div class="detail-info__item">
+                    <div class="detail-info__label">Статус</div>
+                    <div class="detail-info__value">@(Model.IsAvailable ? "Свободен" : "Занят")</div>
+                </div>
+            </div>
+
+            @if (amenities != null && amenities.Count > 0)
+            {
+                <div class="detail-info__label">Удобства</div>
+                <div class="amenity-list">
+                    @foreach (var a in amenities)
+                    {
+                        <span class="amenity-tag">@a.Name</span>
+                    }
+                </div>
+            }
+
+            <div class="detail-price">@Model.PricePerNight ₽ <span>/ ночь</span></div>
+
+            <div class="detail-actions">
+                <a asp-action="Index" class="btn btn-ghost">← Назад к списку</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редактировать</a>
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display:inline"
+                      onsubmit="return confirm('Удалить номер?');">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

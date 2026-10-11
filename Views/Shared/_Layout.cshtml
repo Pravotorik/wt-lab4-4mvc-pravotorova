@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — Отель Pravotorik</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" asp-controller="Home" asp-action="Index">
+                <span class="brand-mark">✦</span> Отель Pravotorik
+            </a>
+            <nav class="site-nav">
+                <a asp-controller="Home" asp-action="Index">Главная</a>
+                <a asp-controller="Room" asp-action="Index">Номера</a>
+                <a asp-controller="Guest" asp-action="Index">Гости</a>
+                <a asp-controller="Room" asp-action="Create" class="nav-cta">Забронировать</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-container">
+            <p>© @DateTime.Now.Year <strong>Отель Pravotorik</strong> · Уют, в котором хочется остаться</p>
+        </div>
+    </footer>
+</body>
+</html>

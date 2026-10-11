@@ -1,0 +1,54 @@
+﻿@model List<wt_lab4_4mvc_pravotorova.Models.Room>
+@{
+    ViewData["Title"] = "Номера";
+    var amenities = ViewBag.Amenities as List<wt_lab4_4mvc_pravotorova.Models.Amenity>;
+}
+
+<div class="page-container">
+    <div class="page-head">
+        <div>
+            <h1>Каталог номеров</h1>
+            <p>@Model.Count вариантов для вашего отдыха</p>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">+ Добавить номер</a>
+    </div>
+
+    <form method="get" asp-action="Index" class="search-form">
+        <input type="text" name="search" value="@ViewBag.Search" placeholder="Поиск по номеру или категории..." />
+        <button type="submit">Найти</button>
+    </form>
+
+    @if (Model.Count == 0)
+    {
+        <div class="empty-state">
+            <div class="big">✧</div>
+            <p>Ничего не найдено. Попробуйте другой запрос.</p>
+        </div>
+    }
+    else
+    {
+        <div class="card-grid">
+            @foreach (var room in Model)
+            {
+                <article class="room-card">
+                    <div class="room-card__image">
+                        <img src="@room.ImageUrl" alt="Номер @room.Number" />
+                        <span class="room-card__badge">№ @room.Number</span>
+                        <span class="room-card__status @(room.IsAvailable ? "available" : "busy")">
+                            @(room.IsAvailable ? "Свободен" : "Занят")
+                        </span>
+                    </div>
+                    <div class="room-card__body">
+                        <div class="room-card__category">@room.Category</div>
+                        <h3 class="room-card__title">Номер @room.Number</h3>
+                        <p class="room-card__desc">@room.Description</p>
+                        <div class="room-card__footer">
+                            <div class="room-card__price">@room.PricePerNight ₽ <span>/ ночь</span></div>
+                            <a asp-action="Details" asp-route-id="@room.Id" class="room-card__link">Подробнее →</a>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+</div>
